@@ -1,1 +1,12 @@
 # Robotic-Manipulation
+ Advanced Robotic Manipulation using Drake Simulator  
+This project was carried out as part of a technical research internship at the Indian Institute of Science (IISc) , Bengaluru,. It focuses on high-fidelity simulation of robotic manipulation behaviors — specifically dynamic object throwing and classical pick-and-place tasks — using the **Drake** simulation environment, a physics-accurate robotics toolbox developed by **MIT** and the **Toyota Research Institute**.
+
+At the core of the project is the use of a **KUKA iiwa14 7-DOF robotic manipulator**, modeled using Drake’s `MultibodyPlant`, capable of executing complex, time-critical manipulation tasks. The simulation pipeline was implemented using **Drake's symbolic-numeric architecture**, with advanced features like inverse kinematics solvers, spatial velocity assignment, trajectory interpolation, and real-time visualization via **Meshcat**. The throwing task required the integration of ballistic modeling with precise kinematic planning — the robot dynamically computed optimal end-effector trajectories and release velocities to project a spherical object into a basketball hoop. This demanded meticulous tuning of the robot's control space, involving pose estimation, velocity profiling, and frame transformation via `RigidTransform`.
+
+The pick-and-place module emphasized quasi-static manipulation and tested the robustness of inverse kinematics under spatial constraints, with precise object anchoring, collision-avoidance strategies, and trajectory smoothness guaranteed through cubic interpolation methods. The entire environment was built to be portable across local and cloud-based platforms (Jupyter/Colab), demonstrating reproducibility, performance benchmarking, and deterministic behavior under identical system configurations.
+
+The project architecture leveraged Python's scientific stack, including `NumPy`, `SciPy`, `matplotlib`, and `IPython.display`, integrated tightly with Drake's `pydrake` API. All simulations were visualized in-browser using Meshcat, with real-time scene manipulation and embedded physics analysis. From spatial velocity detachment for object release to rigid body welding for grasp simulation, the system was designed to reflect both physical realism and algorithmic modularity. This project not only validates the feasibility of **model-based motion planning for dynamic tasks** but also lays the foundation for extending such work to hardware implementations and reinforcement learning controllers.
+
+
+---
